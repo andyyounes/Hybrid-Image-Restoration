@@ -1,0 +1,31 @@
+<div class="container3" ng-controller="loginController">
+    <div class="left-container">
+        <h1>Login</h1>
+        <div class="form-container">
+            <form ng-submit="login(credentials)">
+                <div class="label-container">
+                    <label for="username">Username:</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" ng-model="credentials.username" id="username" required>
+                </div>
+                
+                <div class="label-container">
+                    <label for="password">Password:</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" ng-model="credentials.password" id="password" minlength="8" required>
+                </div>
+                
+                <div class="input-container">
+                    <input type="submit" class="input-submit" value="Log In" >
+                </div>
+            </form>
+        </div>
+        <p ng-if="error" class="errorLine">{{ error }}</p>
+        <p>Don't have an account? Click here to <a ui-sref="register" class="attr2"> Sign-up </a></p>
+    </div>
+    <div class="right-container">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+    </div>
+</div>

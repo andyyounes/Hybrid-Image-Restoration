@@ -1,0 +1,57 @@
+<body>
+    <video class="video-background" autoplay muted loop>
+        <!-- Provide the path to your video file -->
+        <source src="./images/pexels-anna-nekrashevich-7945834 (Original).mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+</body>
+<main ng-controller="DeblurController" class="main-restoration">
+       
+        <h1>Image Restoration</h1>
+        <!-- <form id="uploadForm" ng-submit="chooseImage()">
+            
+            <label for="imageInput" class="choose-file-button">Choose Image</label>
+            <input type="file" id="imageInput" class="file-input" name="image" accept="image/*" required onchange="angular.element(this).scope().displayImage()">
+        </form> -->
+
+        <form id="algorithmForm">
+            <label for="algorithmSelect"> Choose Restoration Algorithm:</label><br>
+            <select id="algorithmSelect" name="algorithm">
+                <option value="">Select an algorithm</option>
+                <option value="algorithm1">Denoising Autoencoders</option>
+                <option value="algorithm2">Convolutional Neural Networks (CNNs)</option>
+                <option value="algorithm3">Super-Resolution Convolutional Neural Networks (SRCNN)</option>
+                <option value="algorithm4">Generative Adversarial Networks (GANs)</option>
+                <option value="algorithm5">Bilateral Filters</option>
+                <option value="algorithm6">Non-Local Inpainting</option>
+                <option value="algorithm7">Deep Image Prior (DIP)</option>
+                <option value="algorithm8">Hybrid Machine Learning</option>
+            </select>
+        </form>
+        <div class="button-container">
+            <div ng-click="chooseImage()">
+                <label for="imageInput" class="choose-file-button">Choose Image</label>
+                <input type="file" id="imageInput" class="file-input" name="image" accept="image/*" required onchange="angular.element(this).scope().displayImage()">
+            </div>
+
+            <div ng-click="restoreImage()">
+                <input type="button" value="Restore Image" ng-click="restoreImage()" class="restore-file-button">
+            </div>
+          </div>
+        <!-- <form id="uploadForm" ng-submit="chooseImage()">
+            <label for="imageInput" class="choose-file-button">Choose Image</label>
+            <input type="file" id="imageInput" class="file-input" name="image" accept="image/*" required onchange="angular.element(this).scope().displayImage()">
+        </form>
+        <input type="button" value="Restore Image" ng-click="restoreImage()" id="restoreButton"> -->
+  <div class="image-container">
+      <div class="image-box">
+          <h2>Before</h2>
+          <img ng-src="{{ originalImage }}" alt="Original Image">
+      </div>
+      <div class="image-box">
+          <h2>After</h2>
+          <img ng-src="{{ restoredImage }}" alt="Restored Image">
+      </div>
+      <!-- <img src="./images/svnth-removebg-preview.png" alt="image 6"> -->
+    </div>
+</main>

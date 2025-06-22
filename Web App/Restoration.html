@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Image Restoration - Choose Algorithm</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+      <link rel="stylesheet" href="ImageRestoration.css">
+      <script src="toggle.js"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a class="menu-item" href="Main.html">Main</a>
+        <a class="menu-item" href="Index.html">Home</a>
+        <a class="menu-item" href="Restoration.html">Restoration</a>
+        <a class="menu-item" href="ContactUs.html">Contact Us</a>
+        <a class="menu-item" href="AboutUs.html">About Us</a>
+      </div>          
+      <div id="main" class="header-left">
+        <button class="openbtn" onclick="toggleNav()">☰</button> 
+        <img src="./images/scnd-removebg-preview.png" alt="logo" class="header-logoim" id="logo">
+      </div>
+      <div class="header-right">
+        <button onclick="switchMode()" class="night-mode-button">
+        <img id="moonIcon" src="./images/[removal.ai]_bcf90bd8-63d7-49dc-8ef8-52aaf482491f_night2.png" alt="Moon Icon" class="moon-icon">
+        </button>
+        <button class="login-button" onclick="goToLoginPage()"><b>Login</b></button>
+        <button class="subscribe-button" onclick="goToSubscribePage()"><b>Subscribe</b></button>
+      </div>
+    </header>
+    
+    <main>
+      <h1>Image Restoration</h1>
+      <form id="uploadForm" onsubmit="return chooseImage()">
+        <label for="imageInput">Choose an Image:</label>
+        <label for="imageInput" class="choose-file-button">Choose Image</label>
+        <input type="file" id="imageInput" class="file-input" name="image" accept="image/*" required onchange="displayImage()">
+    </form>
+    
+
+      <form id="algorithmForm">
+        <label for="algorithmSelect">Choose Restoration Algorithm:</label>
+        <select id="algorithmSelect" name="algorithm">
+          <option value="">Select an algorithm</option>
+          <option value="algorithm1">Denoising Autoencoders</option>
+          <option value="algorithm2">Convolutional Neural Networks (CNNs)</option>
+          <option value="algorithm3">Super-Resolution Convolutional Neural Networks (SRCNN)</option>
+          <option value="algorithm4">Generative Adversarial Networks (GANs)</option>
+          <option value="algorithm5">Bilateral Filters</option>
+          <option value="algorithm6">Non-Local Inpainting</option>
+          <option value="algorithm7">Deep Image Prior (DIP)</option>
+          <option value="algorithm8">Hybrid Machine Learning</option>       
+        </select>
+        <input type="button" value="Restore Image" onclick="restoreImage()" id="restoreButton">
+      </form>
+      <div class="image-container">
+        <div class="image-box">
+          <h2>Before</h2>
+          <img src="" alt="Original Image" id="originalImage" onchange="displayImage()" class="imforbefore">
+        </div>
+        <div class="image-box">
+          <h2>After</h2>
+          <img id="restoredImage" alt="Restored Image" class="imforbefore" src="{{ restored_image_path }}">
+        </div>
+        <img src="./images/svnth-removebg-preview.png" alt="image 6">
+      </div>
+    </main>
+  </body>
+</html>
+
